@@ -31,7 +31,18 @@ The dataset used for this project is available on Kaggle:
 
 ## 🚀 Quick Start
 
-### 1. Install Dependencies
+### 1. Reconstruct ChromaDB Database
+
+After cloning the repository, you need to reconstruct the ChromaDB database from its chunks:
+
+```powershell
+# Reconstruct the database (merges 3 chunks into chroma.sqlite3)
+python reconstruct_file.py
+```
+
+This will create the `parquet cromadb/chroma.sqlite3` file (2.56 GB) from the split chunks that are tracked with Git LFS.
+
+### 2. Install Dependencies
 
 ```powershell
 # Create virtual environment (recommended)
@@ -42,7 +53,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-### 2. Preprocess Data
+### 3. Preprocess Data
 
 ```powershell
 # Process all medical datasets
@@ -62,7 +73,7 @@ This will combine:
 
 Output: `data/processed/train.jsonl` and `data/processed/val.jsonl`
 
-### 3. Configure Training
+### 4. Configure Training
 
 Edit `configs/qlora_config.yaml` to customize:
 - Model path (if using local Llama 2)
@@ -75,7 +86,7 @@ Edit `configs/qlora_config.yaml` to customize:
 2. Login with: `huggingface-cli login`
 3. Or download the model locally and update `model_name` in config
 
-### 4. Train the Model
+### 5. Train the Model
 
 ```powershell
 # Single GPU training (RTX 3050)
@@ -94,7 +105,7 @@ tensorboard --logdir logs
 ```
 Then open http://localhost:6006
 
-### 5. Run Inference
+### 6. Run Inference
 
 ```powershell
 # Interactive chat mode
