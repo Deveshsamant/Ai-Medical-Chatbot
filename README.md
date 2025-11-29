@@ -42,7 +42,24 @@ python reconstruct_file.py
 
 This will create the `parquet cromadb/chroma.sqlite3` file (2.56 GB) from the split chunks that are tracked with Git LFS.
 
-### 2. Install Dependencies
+### 2. Download Local LLM Model
+
+Download the TinyLlama model for local inference (no API keys required):
+
+```powershell
+# Navigate to backend directory
+cd backend
+
+# Download the model (638 MB)
+python download_tinyllama.py
+
+# Return to project root
+cd ..
+```
+
+This downloads `tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf` to `backend/models/` for fully local, GPU-accelerated inference.
+
+### 3. Install Dependencies
 
 ```powershell
 # Create virtual environment (recommended)
@@ -53,7 +70,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-### 3. Preprocess Data
+### 4. Preprocess Data
 
 ```powershell
 # Process all medical datasets
@@ -73,7 +90,7 @@ This will combine:
 
 Output: `data/processed/train.jsonl` and `data/processed/val.jsonl`
 
-### 4. Configure Training
+### 5. Configure Training
 
 Edit `configs/qlora_config.yaml` to customize:
 - Model path (if using local Llama 2)
@@ -86,7 +103,7 @@ Edit `configs/qlora_config.yaml` to customize:
 2. Login with: `huggingface-cli login`
 3. Or download the model locally and update `model_name` in config
 
-### 5. Train the Model
+### 6. Train the Model
 
 ```powershell
 # Single GPU training (RTX 3050)
@@ -105,7 +122,7 @@ tensorboard --logdir logs
 ```
 Then open http://localhost:6006
 
-### 6. Run Inference
+### 7. Run Inference
 
 ```powershell
 # Interactive chat mode
