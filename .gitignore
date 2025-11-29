@@ -2,30 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
+*.pyc
 
-# Virtual Environments
+# Virtual environments
+.venv/
 venv/
-env/
-ENV/
-.venv
-
-# Model Files (too large for GitHub)
-*.gguf
-backend/models/*.gguf
-backend/models/
-
-# ChromaDB / Vector Database (too large for GitHub, users should generate locally)
-parquet cromadb/
-*.sqlite3
-chroma.sqlite3
-
-
-# Environment Variables
-.env
-.env.local
-.env.*.local
 
 # IDE
 .vscode/
@@ -33,37 +14,22 @@ chroma.sqlite3
 *.swp
 *.swo
 *~
-.DS_Store
 
 # OS
+.DS_Store
 Thumbs.db
-desktop.ini
-
-# Backup Files
-*_backup.*
-*.bak
-*.backup
 
 # Logs
-logs/
 *.log
 
-# Jupyter Notebook
-.ipynb_checkpoints/
-*.ipynb_checkpoints
+# Environment variables
+.env
+.env.local
 
-# Distribution / Packaging
-build/
-dist/
-*.egg-info/
-.eggs/
+# Ignore only the original large sqlite3 file (we track the chunks instead)
+parquet cromadb/chroma.sqlite3
 
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Temporary Files
-*.tmp
-temp/
-tmp/
+# ML model files (optional - remove if you want to track these)
+*.pt
+*.h5
+*.pkl
