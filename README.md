@@ -4,7 +4,6 @@ A complete pipeline for fine-tuning Llama 2 7B on medical Q&A data using QLoRA (
 
 ## 🎯 Features
 
-- **Memory Efficient**: Runs on RTX 3050 6GB using 4-bit quantization
 - **Multiple Datasets**: Combines HealthCareMagic-100k, iCliniq, and custom medical data
 - **QLoRA Training**: Parameter-efficient fine-tuning with LoRA adapters
 - **Easy to Use**: Simple scripts for preprocessing, training, and inference
@@ -12,12 +11,12 @@ A complete pipeline for fine-tuning Llama 2 7B on medical Q&A data using QLoRA (
 - **Local Execution**: Runs entirely locally on your laptop
 - **Privacy Focused**: No API keys required, all data stays on your machine
 
-## � Dataset
+##  Dataset
 
 The dataset used for this project is available on Kaggle:
 **[Chat Medic Dataset](https://www.kaggle.com/datasets/deveshsamant/chat-medic)**
 
-## �📋 Requirements
+## 📋 Requirements
 
 ### Hardware
 ### Hardware
